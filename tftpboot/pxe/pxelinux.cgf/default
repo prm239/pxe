@@ -1,0 +1,11 @@
+default vesamenu.c32
+prompt 1
+timeout 600
+
+#display boot.msg
+
+label linux
+  menu label ^Install system
+  menu default
+  kernel images/vmlinuz
+  append initrd=images/initrd.img ip=dhcp inst.repo=http://192.168.122.42/rhel_iso/
