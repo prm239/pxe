@@ -25,4 +25,15 @@ public (active)
   source-ports: 
   icmp-blocks: 
   rich rules: 
-	
+
+
+rpm2cpio syslinux-tftpboot-6.04-4.el8.noarch.rpm | cpio -divm
+mkdir /var/tftpboot/pxelinux.cgf
+vi /var/tftpboot/pxelinux.cgf/default
+
+
+
+rpm2cpio grub2-efi-x64-2.02-81.el8.x86_64.rpm | cpio -divm
+rpm2cpio shim-x64-15-11.el8.x86_64.rpm | cpio -divm
+cp efi/EFI/centos/shimx64.efi /var/lib/tftpboot/shim.efi
+cp boot/efi/EFI/centos/grubx64.efi /var/lib/tftpboot/	
